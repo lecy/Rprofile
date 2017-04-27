@@ -7,7 +7,6 @@ options( scipen=8 )
 
 
 
-
 # custom plot function
 
 jplot <- function( x1, x2, lab1="", lab2="", draw.line=T, ... )
@@ -22,7 +21,9 @@ jplot <- function( x1, x2, lab1="", lab2="", draw.line=T, ... )
 	      ylab=lab2, cex.lab=1.5,
         ... )
 
-	if( draw.line==T ){ lines( lowess(x2~x1), col="red", lwd=3 ) }
+	if( draw.line==T ){ 
+		ok <- is.finite(x1) & is.finite(x2)
+		lines( lowess(x2[ok]~x1[ok]), col="red", lwd=3 ) }
 
 }
 
