@@ -6,6 +6,10 @@ options( stringsAsFactors=FALSE )
 options( scipen=8 )
 
 
+# set your mirror for package installations
+local({r <- getOption("repos")
+      r["CRAN"] <- "http://cran.revolutionanalytics.com"
+      options(repos=r)})
 
 # custom plot function
 
