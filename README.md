@@ -43,6 +43,17 @@ I have started placing my preferred customization steps into a script on GitHub,
 ```r
 # Things you might want to change
 
+# do not convert strings to factors automatically
+options( stringsAsFactors=FALSE )
+
+# do not use scientific convention except for large numbers
+options( scipen=8 )
+
+# set your mirror so you do not get asked when installing packages
+local({r <- getOption("repos")
+      r["CRAN"] <- "http://cran.revolutionanalytics.com"
+      options(repos=r)})
+
 # options(papersize="a4")
 # options(editor="notepad")
 # options(pager="internal")
